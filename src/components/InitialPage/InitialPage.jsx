@@ -27,12 +27,19 @@ const InitialPage = () => {
                 <IPTitle>Cadastre suas receitas e tenha o mundo da culinária em suas mãos!</IPTitle>
                 <IPSubtitle>Compartilhe suas receitas com o mundo</IPSubtitle>
 
-                <Link to="/register"><IPButton>
-                    <IPSpanShadow />
-                    <IPSpanEdge />
-                    <IPSpanFrontText>Cadastre-se
-                    </IPSpanFrontText>
-                </IPButton></Link>
+                <div>
+                    <Link to="/login"><IPButton marginRight={'20px'}>
+                        <IPSpanShadow />
+                        <IPSpanEdge />
+                        <IPSpanFrontText>Login
+                        </IPSpanFrontText>
+                    </IPButton></Link><Link to="/register"><IPButton>
+                        <IPSpanShadow />
+                        <IPSpanEdge />
+                        <IPSpanFrontText>Cadastre-se
+                        </IPSpanFrontText>
+                    </IPButton></Link>
+                </div>
                 <IpImg src={Kitchen} />
             </IPContent>
         </InitialPageContainer>

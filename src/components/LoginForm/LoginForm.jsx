@@ -1,20 +1,16 @@
-import React from 'react';
 import { Formik, useFormik } from 'formik';
-
+import React from 'react'
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import api from '../../api/api';
+import Button from '../Button/Button';
+import FormCol from '../FormCol/FormCol';
+import Input from '../Input/Input';
 import {
     Form
-} from './FormRegister.Elements'
-import { Link, useNavigate } from 'react-router-dom';
-import api from '../../api/api';
-import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
-import Input from '../Input/Input';
-import FormCol from '../FormCol/FormCol';
-import Button from '../Button/Button';
+} from './LoginForm.Elements'
 
-
-const FormRegister = () => {
-    let navigate = useNavigate();
+const LoginForm = () => {
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -27,8 +23,6 @@ const FormRegister = () => {
                 try {
                     await api.post('/users', values);
                     toast.success('usuario cadastrado com sucesso!');
-                    navigate('/login');
-
                 } catch (error) {
                     console.log(error)
                 }
@@ -40,18 +34,17 @@ const FormRegister = () => {
     return (
         <Formik>
             <Form onSubmit={formik.handleSubmit}>
-                <FormCol>
-                    <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nome"
-                        required={true}
-                        onChange={formik.handleChange}
-                        value={formik.values.name}
-                    />
-                </FormCol>
-
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
                 <FormCol>
                     <Input
                         id="email"
@@ -99,4 +92,4 @@ const FormRegister = () => {
     );
 };
 
-export default FormRegister;
+export default LoginForm;

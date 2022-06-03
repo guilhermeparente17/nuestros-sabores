@@ -83,6 +83,7 @@ export const IPButton = styled.button`
     transition: filter 250ms;
     user-select: none;
     touch-action: manipulation;
+    margin-right: ${(props) => props.marginRight};
 
     &:hover {
         filter: brightness(110%);

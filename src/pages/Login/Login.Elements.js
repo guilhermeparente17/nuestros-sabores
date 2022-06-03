@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const RegisterContainer = styled.div`
+export const LoginContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@ export const RegisterContainer = styled.div`
     height: 100vh;
 `;
 
-export const RegisterCard = styled.div`
+export const LoginCard = styled.div`
     width: 800px;
     height: 500px;
     background-color: #fff;
@@ -19,6 +19,6 @@ export const RegisterCard = styled.div`
     margin-top: -120px;
 `;
 
-export const RegisterTitle = styled.h1`
+export const LoginTitle = styled.h2`
     text-align: center;
 `;

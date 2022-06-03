@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const ItemsContainer = styled.div`
-    margin-top: 300px;
+    margin-top: 450px;
     width: 100%;
-    height: 400px;
+    height: 250px;
 
     display: flex;
     justify-content: space-around;

@@ -19,6 +19,8 @@ export const IPContent = styled.div`
     justify-content: center;
     align-items: center;
     color: #fff;
+    text-align: center;
+
 `;
 
 export const IpImg = styled.img`
@@ -42,20 +44,15 @@ export const IpImg = styled.img`
     }
 `;
 
-export const IPLogo = styled.h1`
-    font-weight: 400;
-    margin: 15px 0px;
-    font-size: 25px;
-
-    @media(max-width: 900px){
-        font-size: 20px;
-    }
+export const IPLogo = styled.img`
+    width: 200px;
+    height: 150px;
 `;
 
 export const IPTitle = styled.h1`
     font-weight: 700;
     font-size: 35px;
-    margin: 20px 0px;
+    margin-bottom: 20px;
     text-align: center;
 
     @media(max-width: 900px){

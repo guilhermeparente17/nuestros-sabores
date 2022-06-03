@@ -7,7 +7,6 @@ export const CompaniesContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
 `;
 
 export const CompDiv = styled.div`
@@ -20,6 +19,8 @@ export const CompaniesLogo = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    width: 100%;
 `;
 
 export const CompLogo = styled.img`

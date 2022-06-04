@@ -1,50 +1,52 @@
 import { Formik, useFormik } from 'formik';
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import api from '../../api/api';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../Button/Button';
 import FormCol from '../FormCol/FormCol';
 import Input from '../Input/Input';
 import {
     Form
 } from './LoginForm.Elements'
+import api from '../../api/api'
+import { insertUser } from '../../store/actionsType';
+import { useDispatch } from 'react-redux';
 
 const LoginForm = () => {
+
+    let hist = useNavigate();
+    const dispatch = useDispatch();
+
+
     const formik = useFormik({
         initialValues: {
-            name: '',
             email: '',
             password: '',
         },
         onSubmit: values => {
             console.log(values);
-            const createUser = async () => {
+            const loginUser = async () => {
                 try {
-                    await api.post('/users', values);
-                    toast.success('usuario cadastrado com sucesso!');
+                    const response = await api.post('users/login', values);
+
+                    if (response.data.length > 0) {
+                        dispatch(insertUser(response.data[0]));
+                        hist('/system');
+                        toast.success(`Bem-vindo ao sistema ${response.data[0].name} 👋`);
+                    } else {
+                        toast.error('Email ou senha inválidos. Tente novamente');
+                    }
                 } catch (error) {
                     console.log(error)
                 }
             }
 
-            createUser();
+            loginUser();
         },
     });
     return (
         <Formik>
             <Form onSubmit={formik.handleSubmit}>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
                 <FormCol>
                     <Input
                         id="email"
@@ -68,20 +70,10 @@ const LoginForm = () => {
                     />
                 </FormCol>
 
-
-                <FormCol>
-                    <Input
-                        id="repeatPassword"
-                        name="repeatPassword"
-                        type="password"
-                        placeholder="Repetir senha"
-                    />
-                </FormCol>
-
                 <Button
                     bgColor={'#700B24'}
                     bgColorHover={'#BD133D'}
-                    type="submit">Cadastrar</Button>
+                    type="submit">Entrar</Button>
                 <Link to="/"><Button
                     marginL={20}
                     bgColor={'gray'}

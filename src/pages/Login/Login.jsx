@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 import {
@@ -11,10 +10,9 @@ import {
 const Login = () => {
     return (
         <>
-            <Header />
             <LoginContainer>
                 <LoginCard>
-                    <LoginTitle>É um prazer tê-lo conosco!</LoginTitle>
+                    <LoginTitle>Login</LoginTitle>
 
                     <LoginForm />
                 </LoginCard>

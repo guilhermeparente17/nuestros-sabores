@@ -1,0 +1,2 @@
+export const INSERT_USER = 'INSERT_USER';
+export const INSERT_CATEGORIES = 'INSERT_CATEGORIES';

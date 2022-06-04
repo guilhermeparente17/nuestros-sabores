@@ -13,7 +13,9 @@ export const ButtonFormat = styled.button`
     transition: 0.4s ease-in-out;
     margin-left: ${(props) => `${props.marginL}px`};
     margin-top: 20px;
-
+    margin-top: ${(props) => `${props.marginT}px`};
+    border-radius: ${(props) => `${props.borderRadius}px`};
+    
     &:hover{
         background-color: ${(props) => props.bgColorHover};
         transition: 0.4s ease-in-out;

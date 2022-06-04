@@ -5,16 +5,14 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import System from "./pages/System/System";
+import Header from "./components/Header/Header";
+import NewRevenue from "./pages/NewRevenue/NewRevenue";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -26,6 +24,16 @@ function App() {
         draggable
         pauseOnHover
     />
+      <Header />
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/system" element={<System />} />
+        <Route path="/system/nova-receita" element={<NewRevenue />} />
+      </Routes>
+
     </div>
   );
 }
